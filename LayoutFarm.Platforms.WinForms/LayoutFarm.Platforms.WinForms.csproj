@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4602B28B-EEEC-4A69-854C-B00B8B616837}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LayoutFarm.Platforms.WinForms</RootNamespace>
+    <AssemblyName>LayoutFarm.Platforms.WinForms</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="0_Start\CanvasViewport.cs" />
+    <Compile Include="0_Start\Conv.cs" />
+    <Compile Include="0_Start\dbugHelper.cs" />
+    <Compile Include="1_LayoutFarm.UI\AbstractCompletionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1_LayoutFarm.UI\AbstractCompletionWindow.Designer.cs">
+      <DependentUpon>AbstractCompletionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2_GdiPlus\2_GdiPlusCanvasViewport.cs" />
+    <Compile Include="2_GdiPlus\0_MyWinGdiPortal.cs" />
+    <Compile Include="3_OpenGL\1_GpuOpenGLSurfaceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="3_OpenGL\1_GpuOpenGLSurfaceView.Designer.cs">
+      <DependentUpon>1_GpuOpenGLSurfaceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2_GdiPlus\1_CpuGdiPlusSurfaceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="2_GdiPlus\1_CpuGdiPlusSurfaceView.Designer.cs">
+      <DependentUpon>1_CpuGdiPlusSurfaceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1_LayoutFarm.UI\InnerViewportKind.cs" />
+    <Compile Include="1_LayoutFarm.UI\MyUITimer.cs" />
+    <Compile Include="1_LayoutFarm.UI\UIPlatformWinForms.cs" />
+    <Compile Include="1_LayoutFarm.UI\UISurfaceViewportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="1_LayoutFarm.UI\UISurfaceViewportControl.Designer.cs">
+      <DependentUpon>UISurfaceViewportControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1_LayoutFarm.UI\TopWindowBridge.cs" />
+    <Compile Include="1_LayoutFarm.UI\TopWindowBridge_dbug.cs" />
+    <Compile Include="2_GdiPlus\3_MyTopWindowBridgeGdiPlus.cs" />
+    <Compile Include="3_OpenGL\3_MyTopWindowBridgeOpenGL.cs" />
+    <Compile Include="2_GdiPlus\Win32Utils.cs" />
+    <Compile Include="3_OpenGL\2_OpenGLCanvasViewport.cs" />
+    <Compile Include="3_OpenGL\0_MyOpenGLPortal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Deps\MiniAgg.Complements\MiniAgg.Complements.csproj">
+      <Project>{AE0DF71E-9B14-4197-B55A-E1E0CE0683C7}</Project>
+      <Name>MiniAgg.Complements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deps\MiniAgg.HardwareGraphics\MiniAgg.HardwareGraphics\MiniAgg.HardwareGraphics.csproj">
+      <Project>{2b1f2c53-2f8d-4e0e-94eb-79171c91337b}</Project>
+      <Name>MiniAgg.HardwareGraphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deps\MiniAgg.HardwareGraphics\OpenTk.CoreGraphics\OpenTk.CoreGraphics.csproj">
+      <Project>{D9E24F68-37FA-4C11-AC17-0C351681908F}</Project>
+      <Name>OpenTk.CoreGraphics</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deps\MiniAgg.HardwareGraphics\OpenTk.Platforms\OpenTk.Platforms.csproj">
+      <Project>{93D4A59A-D626-41C5-AD66-B8472B7BBD71}</Project>
+      <Name>OpenTk.Platforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deps\MiniAgg\MiniAgg.csproj">
+      <Project>{4D5CE655-58FA-4523-8E46-738B941E9E47}</Project>
+      <Name>MiniAgg</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deps\PixelFarm.Drawing.Platforms\PixelFarm.Drawing.Platforms.csproj">
+      <Project>{1AA171E3-523C-4DD5-A169-DE6322991FF5}</Project>
+      <Name>PixelFarm.Drawing.Platforms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Deps\PixelFarm.Drawing\PixelFarm.Drawing.csproj">
+      <Project>{51D63482-5697-4B16-8401-506965624657}</Project>
+      <Name>PixelFarm.Drawing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LayoutFarm.BaseRenderer\LayoutFarm.BaseRenderer.csproj">
+      <Project>{20048075-A2F3-4B97-B3C6-BEA794429741}</Project>
+      <Name>LayoutFarm.BaseRenderer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LayoutFarm.ClientPlatforms\LayoutFarm.ClientPlatforms.csproj">
+      <Project>{61369865-95B7-49F2-B012-67B4A2427A8B}</Project>
+      <Name>LayoutFarm.ClientPlatforms</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="3_OpenGL\1_GpuOpenGLSurfaceView.resx">
+      <DependentUpon>1_GpuOpenGLSurfaceView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
